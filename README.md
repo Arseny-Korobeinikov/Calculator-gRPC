@@ -18,5 +18,6 @@ cd vcpkg
 1. Настройте сборку
 ```
 mkdir build && cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=C:/Users/arsen/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+cmake -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
 ```
+path/to нужно заменить на путь до vcpkg!
