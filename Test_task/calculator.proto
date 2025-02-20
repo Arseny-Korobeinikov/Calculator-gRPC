@@ -1,0 +1,16 @@
+syntax = "proto3";
+package calculator;
+
+service Calculator {
+  rpc Compute (Expression) returns (Result);
+}
+
+message Expression {
+  string expression = 1;
+}
+
+message Result {
+  bool success = 1;
+  string message = 2;
+  double value = 3;
+}
