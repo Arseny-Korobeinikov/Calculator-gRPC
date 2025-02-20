@@ -18,7 +18,8 @@ cd vcpkgcmake --build . --config Release
 ```
 protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=C:/path/to/vcpkg/installed/x64-windows/tools/grpc/grpc_cpp_plugin.exe calculator.proto
 ```
-C:/path/to/ нужно заменить на путь до vcpkg! (У меня это "C:/Users/arsen/vcpkg/")\n
+C:/path/to/ нужно заменить на путь до vcpkg! (У меня это "C:/Users/arsen/vcpkg/")
+
 Это создаст файлы ```calculator.pb.cc```, ```calculator.pb.h```, ```calculator.grpc.pb.cc```, ```calculator.grpc.pb.h```.
 ## 3. Создайте проект с помощью ```CMake```
 1. Настройте сборку:
