@@ -5,7 +5,7 @@
 Откройте PowerShell от имени администратора и выполните:
 ```
 git clone https://github.com/microsoft/vcpkg.git
-cd vcpkg
+cd vcpkgcmake --build . --config Release
 .\bootstrap-vcpkg.bat
 ```
 После этого в папке ```vcpkg/``` появится исполняемый файл ```vcpkg.exe```.
@@ -14,10 +14,17 @@ cd vcpkg
 .\vcpkg install grpc:x64-windows
 ```
 Это скачает и соберет gRPC вместе со всеми необходимыми библиотеками (protobuf, abseil, openssl и т. д.).
-## 2. Создайте проект с помощью ```CMake```
-1. Настройте сборку
+## 2.Сгенерируйте C++ файлы с помощью ```protoc```:
+```
+protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` calculator.proto
+```
+Это создаст файлы ```calculator.pb.cc```, ```calculator.pb.h```, ```calculator.grpc.pb.cc```, ```calculator.grpc.pb.h```.
+## 3. Создайте проект с помощью ```CMake```
+1. Настройте сборку:
 ```
 mkdir build && cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
 ```
 path/to нужно заменить на путь до vcpkg!
+2. Создайте проект:
+cmake --build . --config Release
