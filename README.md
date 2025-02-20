@@ -16,8 +16,9 @@ cd vcpkgcmake --build . --config Release
 Это скачает и соберет gRPC вместе со всеми необходимыми библиотеками (protobuf, abseil, openssl и т. д.).
 ## 2. Сгенерируйте C++ файлы с помощью ```protoc```:
 ```
-protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` calculator.proto
+protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=C:/path/to/vcpkg/installed/x64-windows/tools/grpc/grpc_cpp_plugin.exe calculator.proto
 ```
+C:/path/to/ нужно заменить на путь до vcpkg! (У меня это "C:/Users/arsen/vcpkg/")
 Это создаст файлы ```calculator.pb.cc```, ```calculator.pb.h```, ```calculator.grpc.pb.cc```, ```calculator.grpc.pb.h```.
 ## 3. Создайте проект с помощью ```CMake```
 1. Настройте сборку:
@@ -25,7 +26,7 @@ protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin`
 mkdir build && cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
 ```
-path/to нужно заменить на путь до vcpkg!
+C:/path/to/ нужно заменить на путь до vcpkg!
 2. Создайте проект:
 cmake --build . --config Release
 После успешной сборки в ```build/Release/``` появятся исполняемые файлы ```server.exe``` и ```client.exe```.
