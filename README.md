@@ -17,7 +17,7 @@ cd vcpkgcmake --build . --config Release
 ```
 Это скачает и соберет gRPC вместе со всеми необходимыми библиотеками (protobuf, abseil, openssl и т. д.).
 ## 2. Сгенерируйте C++ файлы с помощью ```protoc```:
-Дальше мы работайте в папке "Test_task". Открывайте терминал и вводите:
+Дальше работайте в папке "Test_task". Открывайте терминал и вводите:
 ```
 protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=C:/path/to/vcpkg/installed/x64-windows/tools/grpc/grpc_cpp_plugin.exe calculator.proto
 ```
