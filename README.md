@@ -37,7 +37,7 @@ cmake --build . --config Release
 ```
 После успешной сборки в ```build/Release/``` появятся исполняемые файлы ```server.exe``` и ```client.exe```.
 ## 4. Запуск сервера:
-Открой терминал в папке ```/build/Release``` и введи:
+Открой терминал в папке ```/build/Release``` и введите:
 ```
 ./server
 ```
@@ -46,7 +46,7 @@ cmake --build . --config Release
 The server is running on 0.0.0.0:50051
 ```
 ## 5. Запуск клиента:
-Открой второй терминал в папке ```/build/Release``` и введи:
+Открой второй терминал в папке ```/build/Release``` и введите:
 ```
 ./client
 ```
