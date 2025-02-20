@@ -28,8 +28,11 @@ mkdir build && cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
 ```
 C:/path/to/ нужно заменить на путь до vcpkg!
+
 2. Создайте проект:
+```
 cmake --build . --config Release
+```
 После успешной сборки в ```build/Release/``` появятся исполняемые файлы ```server.exe``` и ```client.exe```.
 ## 4. Запуск сервера:
 Открой терминал в папке ```/build/Release``` и введи:
