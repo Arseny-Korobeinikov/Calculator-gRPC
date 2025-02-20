@@ -14,7 +14,7 @@ cd vcpkgcmake --build . --config Release
 .\vcpkg install grpc:x64-windows
 ```
 Это скачает и соберет gRPC вместе со всеми необходимыми библиотеками (protobuf, abseil, openssl и т. д.).
-## 2.Сгенерируйте C++ файлы с помощью ```protoc```:
+## 2. Сгенерируйте C++ файлы с помощью ```protoc```:
 ```
 protoc --grpc_out=. --cpp_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` calculator.proto
 ```
@@ -28,3 +28,19 @@ cmake -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake .
 path/to нужно заменить на путь до vcpkg!
 2. Создайте проект:
 cmake --build . --config Release
+После успешной сборки в ```build/Release/``` появятся исполняемые файлы ```server.exe``` и ```client.exe```.
+## 4. Запуск сервера:
+Открой терминал в папке ```/build/Release``` и введи:
+```
+./server
+```
+Если все в порядке, сервер выведет:
+```
+The server is running on 0.0.0.0:50051
+```
+## 5. Запуск клиента:
+Открой второй терминал в папке ```/build/Release``` и введи:
+```
+./client
+```
+Можно начинать работу!
